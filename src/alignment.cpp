@@ -29,6 +29,9 @@ int hts_for_each(string& filename, function<void(Alignment&)> lambda) {
 }
 
 int hts_for_each_parallel(string& filename, function<void(Alignment&)> lambda, xg::XG* xgindex) {
+    
+    int default_alignment=0;
+    
 
     samFile *in = hts_open(filename.c_str(), "r");
     if (in == NULL) return 0;
